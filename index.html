@@ -1,0 +1,248 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emotional Weather | A Map of Feelings</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="background-glow"></div>
+
+    <header class="navbar">
+        <div class="logo">
+            <span class="logo-icon">✦</span>
+            <span>FEEL<span class="purple">MAP</span></span>
+        </div>
+
+        <div class="live-status">
+            <span class="live-dot"></span>
+            LIVE EMOTIONS
+        </div>
+
+        <button class="about-btn" onclick="showAbout()">About</button>
+    </header>
+
+    <main class="main-container">
+
+        <section class="intro">
+            <p class="eyebrow">ONE PLANET. MILLIONS OF FEELINGS.</p>
+
+            <h1>
+                A map of <span>feelings.</span>
+            </h1>
+
+            <p class="subtitle">
+                Every heart has a story. Share yours and discover
+                how the world is feeling right now.
+            </p>
+        </section>
+
+        <section class="dashboard">
+
+            <div class="globe-container">
+
+                <div class="globe-label">
+                    <span class="live-dot"></span>
+                    GLOBAL EMOTIONAL WEATHER
+                </div>
+
+                <div id="globe"></div>
+
+                <div class="globe-hint">
+                    ✦ Drag to explore · Click anywhere to share
+                </div>
+
+                <div class="globe-coordinates">
+                    EARTH / 001
+                </div>
+
+            </div>
+
+            <aside class="sidebar">
+
+                <div class="card share-card">
+
+                    <div class="card-heading">
+                        <div>
+                            <p class="small-label">YOUR EMOTIONAL SPACE</p>
+                            <h2>How are you feeling?</h2>
+                        </div>
+                        <span class="sparkle">✧</span>
+                    </div>
+
+                    <p class="description">
+                        Choose the emotion that describes your
+                        heart today.
+                    </p>
+
+                    <div class="mood-grid">
+
+                        <button class="mood-btn active" data-mood="Happy">
+                            <span>😊</span>
+                            Happy
+                        </button>
+
+                        <button class="mood-btn" data-mood="Sad">
+                            <span>🌧️</span>
+                            Sad
+                        </button>
+
+                        <button class="mood-btn" data-mood="Calm">
+                            <span>🌿</span>
+                            Calm
+                        </button>
+
+                        <button class="mood-btn" data-mood="Anxious">
+                            <span>🫧</span>
+                            Anxious
+                        </button>
+
+                        <button class="mood-btn" data-mood="Loved">
+                            <span>💗</span>
+                            Loved
+                        </button>
+
+                        <button class="mood-btn" data-mood="Hopeful">
+                            <span>🌅</span>
+                            Hopeful
+                        </button>
+
+                    </div>
+
+                    <div class="selected-mood">
+                        <span id="selected-emoji">😊</span>
+                        <span id="selected-text">Happy selected</span>
+                    </div>
+
+                    <button class="share-btn" id="shareBtn">
+                        Drop your feeling on Earth
+                        <span>↗</span>
+                    </button>
+
+                    <p class="share-hint" id="shareHint">
+                        First choose a mood, then click the globe.
+                    </p>
+
+                </div>
+
+                <div class="card statistics-card">
+
+                    <div class="stats-header">
+                        <h3>World's heartbeat</h3>
+                        <span class="live-tag">LIVE</span>
+                    </div>
+
+                    <div class="total-number" id="totalMoods">
+                        12,486
+                    </div>
+
+                    <p class="stats-description">
+                        feelings shared around the world
+                    </p>
+
+                    <div class="mood-stat">
+                        <div class="stat-info">
+                            <span>😊 Happiness</span>
+                            <span id="happyPercent">38%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-fill happy-fill" id="happyBar"></div>
+                        </div>
+                    </div>
+
+                    <div class="mood-stat">
+                        <div class="stat-info">
+                            <span>🌧️ Sadness</span>
+                            <span id="sadPercent">17%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-fill sad-fill" id="sadBar"></div>
+                        </div>
+                    </div>
+
+                    <div class="mood-stat">
+                        <div class="stat-info">
+                            <span>🌿 Calmness</span>
+                            <span id="calmPercent">22%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-fill calm-fill" id="calmBar"></div>
+                        </div>
+                    </div>
+
+                    <div class="mood-stat">
+                        <div class="stat-info">
+                            <span>💗 Love</span>
+                            <span id="lovedPercent">23%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-fill loved-fill" id="lovedBar"></div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </aside>
+
+        </section>
+
+        <section class="activity-section">
+
+            <div class="activity-title">
+                <div>
+                    <p class="small-label">THE WORLD SPEAKS</p>
+                    <h2>Emotions happening now</h2>
+                </div>
+
+                <span class="live-tag">● LIVE FEED</span>
+            </div>
+
+            <div class="activity-feed" id="activityFeed">
+
+                <div class="activity-item">
+                    <span class="activity-emoji">😊</span>
+                    <div>
+                        <strong>Someone is feeling happy</strong>
+                        <p>Somewhere in Tokyo, Japan</p>
+                    </div>
+                    <span class="time">Just now</span>
+                </div>
+
+                <div class="activity-item">
+                    <span class="activity-emoji">🌿</span>
+                    <div>
+                        <strong>Someone found their calm</strong>
+                        <p>Somewhere in Copenhagen, Denmark</p>
+                    </div>
+                    <span class="time">1 min ago</span>
+                </div>
+
+            </div>
+
+        </section>
+
+        <footer>
+            <p>Made with <span>♥</span> for every human feeling.</p>
+            <p>YOUR FEELINGS MATTER.</p>
+        </footer>
+
+    </main>
+
+    <div class="toast" id="toast">
+        Your feeling has been placed on Earth ✨
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
